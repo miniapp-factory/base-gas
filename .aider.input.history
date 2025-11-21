@@ -190,3 +190,103 @@
 +
 +please graph this data from the cache over time! display the data in a line graph with gwei cost as y axis , and time as x axis. have it update the graph every second so it looks realtime . make the graph full width of page.
 +
+
+# 2025-11-21 12:21:08.974067
++error:
++
++these 5 derivations will be built:
++/nix/store/hxnc8z2pm3m4gvv9bx1bb0vsicrsxyqn-xnode-miniapp-template-1.0.0.drv
++/nix/store/f7mn74zk42khmvw289gmsivf3vf2xkns-unit-xnode-miniapp-template.service.drv
++/nix/store/w58m0a8a49i5rdlhv6xbd2nbdm0fhhvj-system-units.drv
++/nix/store/80kvy3c90fzqkhj6kf95y1jrk4m97gzp-etc.drv
++/nix/store/3ihj1hn5a6v7m65nnmg5ghhyw4ywzs94-nixos-system-base-gas-25.11.20250921.554be64.drv
++building '/nix/store/hxnc8z2pm3m4gvv9bx1bb0vsicrsxyqn-xnode-miniapp-template-1.0.0.drv'...
++error: builder for '/nix/store/hxnc8z2pm3m4gvv9bx1bb0vsicrsxyqn-xnode-miniapp-template-1.0.0.drv' failed with exit code 1;
++last 25 log lines:
++> ,-[/build/mini-app/components/dashboard.tsx:134:1]
++> 131 | </div>
++> 132 | );
++> 133 | }
++> 134 | "use client";
++> : ^^^^^^^^^^^^^
++> 135 |
++> 136 | import { useEffect, useState, useRef } from "react";
++> `----
++>
++> Import trace for requested module:
++> ./components/dashboard.tsx
++> ./app/page.tsx
++>
++>
++> > Build failed because of webpack errors
++>
++> ERROR: `npm build` failed
++>
++> Here are a few things you can try, depending on the error:
++> 1. Make sure your build script (build) exists
++> If there is none, set `dontNpmBuild = true`.
++> 2. If the error being thrown is something similar to "error:0308010C:digital envelope routines::unsupported", add `NODE_OPTIONS = "--openssl-legacy-provider"` to your derivation
++> See https://github.com/webpack/webpack/issues/14532 for more information.
++>
++For full logs, run:
++nix log /nix/store/hxnc8z2pm3m4gvv9bx1bb0vsicrsxyqn-xnode-miniapp-template-1.0.0.drv
++error: 1 dependencies of derivation '/nix/store/f7mn74zk42khmvw289gmsivf3vf2xkns-unit-xnode-miniapp-template.service.drv' failed to build
++error: 1 dependencies of derivation '/nix/store/w58m0a8a49i5rdlhv6xbd2nbdm0fhhvj-system-units.drv' failed to build
++error: 1 dependencies of derivation '/nix/store/80kvy3c90fzqkhj6kf95y1jrk4m97gzp-etc.drv' failed to build
++error: 1 dependencies of derivation '/nix/store/3ihj1hn5a6v7m65nnmg5ghhyw4ywzs94-nixos-system-base-gas-25.11.20250921.554be64.drv' failed to build
++
++
++
++please fix the above error
++
++perhaps using time is not possible unless it is returned in the rpc or api response. if it is not returned in the data, then you can use the Block Number as the X axis and Y axis is the gwei price.
+
+# 2025-11-21 12:21:08.974713
++error:
++
++these 5 derivations will be built:
++/nix/store/hxnc8z2pm3m4gvv9bx1bb0vsicrsxyqn-xnode-miniapp-template-1.0.0.drv
++/nix/store/f7mn74zk42khmvw289gmsivf3vf2xkns-unit-xnode-miniapp-template.service.drv
++/nix/store/w58m0a8a49i5rdlhv6xbd2nbdm0fhhvj-system-units.drv
++/nix/store/80kvy3c90fzqkhj6kf95y1jrk4m97gzp-etc.drv
++/nix/store/3ihj1hn5a6v7m65nnmg5ghhyw4ywzs94-nixos-system-base-gas-25.11.20250921.554be64.drv
++building '/nix/store/hxnc8z2pm3m4gvv9bx1bb0vsicrsxyqn-xnode-miniapp-template-1.0.0.drv'...
++error: builder for '/nix/store/hxnc8z2pm3m4gvv9bx1bb0vsicrsxyqn-xnode-miniapp-template-1.0.0.drv' failed with exit code 1;
++last 25 log lines:
++> ,-[/build/mini-app/components/dashboard.tsx:134:1]
++> 131 | </div>
++> 132 | );
++> 133 | }
++> 134 | "use client";
++> : ^^^^^^^^^^^^^
++> 135 |
++> 136 | import { useEffect, useState, useRef } from "react";
++> `----
++>
++> Import trace for requested module:
++> ./components/dashboard.tsx
++> ./app/page.tsx
++>
++>
++> > Build failed because of webpack errors
++>
++> ERROR: `npm build` failed
++>
++> Here are a few things you can try, depending on the error:
++> 1. Make sure your build script (build) exists
++> If there is none, set `dontNpmBuild = true`.
++> 2. If the error being thrown is something similar to "error:0308010C:digital envelope routines::unsupported", add `NODE_OPTIONS = "--openssl-legacy-provider"` to your derivation
++> See https://github.com/webpack/webpack/issues/14532 for more information.
++>
++For full logs, run:
++nix log /nix/store/hxnc8z2pm3m4gvv9bx1bb0vsicrsxyqn-xnode-miniapp-template-1.0.0.drv
++error: 1 dependencies of derivation '/nix/store/f7mn74zk42khmvw289gmsivf3vf2xkns-unit-xnode-miniapp-template.service.drv' failed to build
++error: 1 dependencies of derivation '/nix/store/w58m0a8a49i5rdlhv6xbd2nbdm0fhhvj-system-units.drv' failed to build
++error: 1 dependencies of derivation '/nix/store/80kvy3c90fzqkhj6kf95y1jrk4m97gzp-etc.drv' failed to build
++error: 1 dependencies of derivation '/nix/store/3ihj1hn5a6v7m65nnmg5ghhyw4ywzs94-nixos-system-base-gas-25.11.20250921.554be64.drv' failed to build
++
++
++
++please fix the above error
++
++perhaps using time is not possible unless it is returned in the rpc or api response. if it is not returned in the data, then you can use the Block Number as the X axis and Y axis is the gwei price.
