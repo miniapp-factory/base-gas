@@ -4,7 +4,7 @@
 
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 const RPC_URL = "https://mainnet.base.org";
 
@@ -61,7 +61,7 @@ export default function Dashboard() {
     localStorage.setItem("history", JSON.stringify(data));
   };
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const [gasRes, blockRes] = await Promise.all([
         fetch(RPC_URL, {
@@ -92,7 +92,6 @@ export default function Dashboard() {
       const gas = toGwei(gasData.result);
       const block = Number(BigInt(blockData.result.number));
       const excessBlobGas = BigInt(blockData.result.excessBlobGas);
-      const blobGasUsed = BigInt(blockData.result.blobGasUsed);
       const baseFeePerGas = BigInt(blockData.result.baseFeePerGas);
       const blobBaseFee = Number(
         (excessBlobGas * baseFeePerGas) / BigInt(2) / BigInt(1e9)
@@ -121,6 +120,7 @@ export default function Dashboard() {
     }
   };
 
+  /* eslint-disable-next-line react-hooks/exhaustive-deps */
   useEffect(() => {
     loadCache();
     fetchData();
@@ -156,7 +156,7 @@ export default function Dashboard() {
         const high = Math.max(...values);
         const low = Math.min(...values);
         const avg = values.reduce((a, b) => a + b, 0) / values.length;
-        newStats[key] = { high, low, avg };
+        newStats[key as keyof typeof newStats] = { high, low, avg };
       }
     });
     setStats(newStats);
