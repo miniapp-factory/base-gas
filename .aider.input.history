@@ -350,3 +350,33 @@
 
 # 2025-11-21 12:51:13.658592
 +apply changes
+
+# 2025-11-21 13:12:45.954965
++Fix syntax error in dashboard.tsx (unexpected token at line 121-124, ensure useEffect is inside component and braces match):
++
++- Keep Next.js/React structure
++- Remove broken logo
++- Show gas/blob with 8 decimals
++- Correct EIP-4844 blob fee formula
++- Add two Canvas line charts: Legacy Gas and Blob Fee
++  • X: block number
++  • Y: Gwei (auto-scale)
++  • Plot last 200 localStorage points (green/cyan lines)
++- Update on refresh/load
++- Use localStorage only for history
++- Keep style/refresh
+
+# 2025-11-21 13:12:45.955440
++Fix syntax error in dashboard.tsx (unexpected token at line 121-124, ensure useEffect is inside component and braces match):
++
++- Keep Next.js/React structure
++- Remove broken logo
++- Show gas/blob with 8 decimals
++- Correct EIP-4844 blob fee formula
++- Add two Canvas line charts: Legacy Gas and Blob Fee
++  • X: block number
++  • Y: Gwei (auto-scale)
++  • Plot last 200 localStorage points (green/cyan lines)
++- Update on refresh/load
++- Use localStorage only for history
++- Keep style/refresh
