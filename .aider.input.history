@@ -124,3 +124,33 @@
 +- Show "Last updated X seconds ago"
 +- Clean minimalist design, mobile friendly
 +- Vanilla JS only, no external libraries
+
+# 2025-11-21 11:50:05.975532
++Modify the existing Base Gas & Blob Fee Tracker:
++
++- Completely remove the broken logo/image at top left
++- Keep black terminal style with green text
++- Fix zero display issue: show up to 8 decimals (e.g., 0.000012 Gwei) for both Legacy Gas and Blob Base Fee
++- Correctly implement EIP-4844 blob base fee using the real exponential formula with excessBlobGas
++- Turn into a historical dashboard:
++  • Store last 200 data points (legacy gas, blob fee, block, timestamp) in localStorage only
++  • Show a simple sparkline chart below the big numbers (use <canvas> or unicode ▁▂▃▅▇ sparkline)
++  • Show 1h / 6h / 24h high/low/avg below the chart
++  • On first load, show cached history instantly
++- Keep auto-refresh every 12s, "Refresh Now" button, "Last updated X sec ago"
++- Mobile friendly, vanilla JS only, no external libs
+
+# 2025-11-21 11:50:05.975934
++Modify the existing Base Gas & Blob Fee Tracker:
++
++- Completely remove the broken logo/image at top left
++- Keep black terminal style with green text
++- Fix zero display issue: show up to 8 decimals (e.g., 0.000012 Gwei) for both Legacy Gas and Blob Base Fee
++- Correctly implement EIP-4844 blob base fee using the real exponential formula with excessBlobGas
++- Turn into a historical dashboard:
++  • Store last 200 data points (legacy gas, blob fee, block, timestamp) in localStorage only
++  • Show a simple sparkline chart below the big numbers (use <canvas> or unicode ▁▂▃▅▇ sparkline)
++  • Show 1h / 6h / 24h high/low/avg below the chart
++  • On first load, show cached history instantly
++- Keep auto-refresh every 12s, "Refresh Now" button, "Last updated X sec ago"
++- Mobile friendly, vanilla JS only, no external libs
