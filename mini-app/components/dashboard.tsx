@@ -59,7 +59,7 @@ export default function Dashboard() {
 
   const saveCache = (data: DataPoint[]) => {
     localStorage.setItem("history", JSON.stringify(data));
-  };
+  }
 
   const fetchData = useCallback(async () => {
     try {
