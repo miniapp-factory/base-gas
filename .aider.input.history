@@ -290,3 +290,25 @@
 +please fix the above error
 +
 +perhaps using time is not possible unless it is returned in the rpc or api response. if it is not returned in the data, then you can use the Block Number as the X axis and Y axis is the gwei price.
+
+# 2025-11-21 12:37:09.726967
++here is the error:
++
++these 5 derivations will be built:/nix/store/000h1yh3gn2qj3ksqpb9bgg3q0p68zr2-xnode-miniapp-template-1.0.0.drv/nix/store/fd5xfx08jm80kwr9hi3i0pn7ypy6jf6j-unit-xnode-miniapp-template.service.drv/nix/store/15yzmwaz2ss09gmfbsfyhji66430ilm2-system-units.drv/nix/store/44dmk96im8d5bmf0vygj9r3m163da266-etc.drv/nix/store/ky00yklanbwd4ray4zwah17a1wr3vy9i-nixos-system-base-gas-25.11.20250921.554be64.drvbuilding '/nix/store/000h1yh3gn2qj3ksqpb9bgg3q0p68zr2-xnode-miniapp-template-1.0.0.drv'...error: builder for '/nix/store/000h1yh3gn2qj3ksqpb9bgg3q0p68zr2-xnode-miniapp-template-1.0.0.drv' failed with exit code 1;last 25 log lines:> 121 | };> : ^> 122 |> 123 | /* eslint-disable-next-line react-hooks/exhaustive-deps */> 124 | useEffect(() => {> `---->> Caused by:> Syntax Error>> Import trace for requested module:> ./components/dashboard.tsx> ./app/page.tsx>>> > Build failed because of webpack errors>> ERROR: `npm build` failed>> Here are a few things you can try, depending on the error:> 1. Make sure your build script (build) exists> If there is none, set `dontNpmBuild = true`.> 2. If the error being thrown is something similar to "error:0308010C:digital envelope routines::unsupported", add `NODE_OPTIONS = "--openssl-legacy-provider"` to your derivation> See https://github.com/webpack/webpack/issues/14532 for more information.>For full logs, run:nix log /nix/store/000h1yh3gn2qj3ksqpb9bgg3q0p68zr2-xnode-miniapp-template-1.0.0.drverror: 1 dependencies of derivation '/nix/store/fd5xfx08jm80kwr9hi3i0pn7ypy6jf6j-unit-xnode-miniapp-template.service.drv' failed to builderror: 1 dependencies of derivation '/nix/store/15yzmwaz2ss09gmfbsfyhji66430ilm2-system-units.drv' failed to builderror: 1 dependencies of derivation '/nix/store/44dmk96im8d5bmf0vygj9r3m163da266-etc.drv' failed to builderror: 1 dependencies of derivation '/nix/store/ky00yklanbwd4ray4zwah17a1wr3vy9i-nixos-system-base-gas-25.11.20250921.554be64.drv' failed to build
++ 
++ 
++ 
++here is the fix:
++
++The error is caused by a JavaScript/TypeScript syntax error in components/dashboard.tsx at line 121 (the closing brace } and semicolon ;), which is preventing the npm build from succeeding during the Nix derivation build. This is likely due to a mismatched brace, unexpected token, or misplaced code (e.g., the useEffect hook on line 124 may be outside a React component body, making it invalid).
+
+# 2025-11-21 12:37:09.727415
++here is the error:
++
++these 5 derivations will be built:/nix/store/000h1yh3gn2qj3ksqpb9bgg3q0p68zr2-xnode-miniapp-template-1.0.0.drv/nix/store/fd5xfx08jm80kwr9hi3i0pn7ypy6jf6j-unit-xnode-miniapp-template.service.drv/nix/store/15yzmwaz2ss09gmfbsfyhji66430ilm2-system-units.drv/nix/store/44dmk96im8d5bmf0vygj9r3m163da266-etc.drv/nix/store/ky00yklanbwd4ray4zwah17a1wr3vy9i-nixos-system-base-gas-25.11.20250921.554be64.drvbuilding '/nix/store/000h1yh3gn2qj3ksqpb9bgg3q0p68zr2-xnode-miniapp-template-1.0.0.drv'...error: builder for '/nix/store/000h1yh3gn2qj3ksqpb9bgg3q0p68zr2-xnode-miniapp-template-1.0.0.drv' failed with exit code 1;last 25 log lines:> 121 | };> : ^> 122 |> 123 | /* eslint-disable-next-line react-hooks/exhaustive-deps */> 124 | useEffect(() => {> `---->> Caused by:> Syntax Error>> Import trace for requested module:> ./components/dashboard.tsx> ./app/page.tsx>>> > Build failed because of webpack errors>> ERROR: `npm build` failed>> Here are a few things you can try, depending on the error:> 1. Make sure your build script (build) exists> If there is none, set `dontNpmBuild = true`.> 2. If the error being thrown is something similar to "error:0308010C:digital envelope routines::unsupported", add `NODE_OPTIONS = "--openssl-legacy-provider"` to your derivation> See https://github.com/webpack/webpack/issues/14532 for more information.>For full logs, run:nix log /nix/store/000h1yh3gn2qj3ksqpb9bgg3q0p68zr2-xnode-miniapp-template-1.0.0.drverror: 1 dependencies of derivation '/nix/store/fd5xfx08jm80kwr9hi3i0pn7ypy6jf6j-unit-xnode-miniapp-template.service.drv' failed to builderror: 1 dependencies of derivation '/nix/store/15yzmwaz2ss09gmfbsfyhji66430ilm2-system-units.drv' failed to builderror: 1 dependencies of derivation '/nix/store/44dmk96im8d5bmf0vygj9r3m163da266-etc.drv' failed to builderror: 1 dependencies of derivation '/nix/store/ky00yklanbwd4ray4zwah17a1wr3vy9i-nixos-system-base-gas-25.11.20250921.554be64.drv' failed to build
++ 
++ 
++ 
++here is the fix:
++
++The error is caused by a JavaScript/TypeScript syntax error in components/dashboard.tsx at line 121 (the closing brace } and semicolon ;), which is preventing the npm build from succeeding during the Nix derivation build. This is likely due to a mismatched brace, unexpected token, or misplaced code (e.g., the useEffect hook on line 124 may be outside a React component body, making it invalid).
