@@ -38,6 +38,7 @@ export default function Dashboard() {
   });
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const blobCanvasRef = useRef<HTMLCanvasElement>(null);
 
   const loadCache = () => {
     const cachedData = localStorage.getItem("history");
@@ -163,32 +164,53 @@ export default function Dashboard() {
   }, [history]);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    const gasCanvas = canvasRef.current;
+    const blobCanvas = blobCanvasRef.current;
+    if (!gasCanvas || !blobCanvas) return;
+    const gasCtx = gasCanvas.getContext("2d");
+    const blobCtx = blobCanvas.getContext("2d");
+    if (!gasCtx || !blobCtx) return;
     const draw = () => {
-      const width = canvas.clientWidth;
-      const height = canvas.clientHeight;
-      canvas.width = width;
-      canvas.height = height;
-      ctx.clearRect(0, 0, width, height);
+      const width = gasCanvas.clientWidth;
+      const height = gasCanvas.clientHeight;
+      gasCanvas.width = width;
+      gasCanvas.height = height;
+      blobCanvas.width = width;
+      blobCanvas.height = height;
+      gasCtx.clearRect(0, 0, width, height);
+      blobCtx.clearRect(0, 0, width, height);
       if (!history.length) return;
-      const values = history.map((p) => p.gas);
-      const min = Math.min(...values);
-      const max = Math.max(...values);
-      const range = max - min || 1;
+      const gasValues = history.map((p) => p.gas);
+      const blobValues = history.map((p) => p.blob);
+      const gasMin = Math.min(...gasValues);
+      const gasMax = Math.max(...gasValues);
+      const blobMin = Math.min(...blobValues);
+      const blobMax = Math.max(...blobValues);
+      const gasRange = gasMax - gasMin || 1;
+      const blobRange = blobMax - blobMin || 1;
       const step = width / (history.length - 1);
-      ctx.strokeStyle = "#00ff00";
-      ctx.lineWidth = 1;
-      ctx.beginPath();
+      // Draw gas line (green)
+      gasCtx.strokeStyle = "#00ff00";
+      gasCtx.lineWidth = 1;
+      gasCtx.beginPath();
       history.forEach((p, i) => {
         const x = i * step;
-        const y = height - ((p.gas - min) / range) * height;
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
+        const y = height - ((p.gas - gasMin) / gasRange) * height;
+        if (i === 0) gasCtx.moveTo(x, y);
+        else gasCtx.lineTo(x, y);
       });
-      ctx.stroke();
+      gasCtx.stroke();
+      // Draw blob line (cyan)
+      blobCtx.strokeStyle = "#00ffff";
+      blobCtx.lineWidth = 1;
+      blobCtx.beginPath();
+      history.forEach((p, i) => {
+        const x = i * step;
+        const y = height - ((p.blob - blobMin) / blobRange) * height;
+        if (i === 0) blobCtx.moveTo(x, y);
+        else blobCtx.lineTo(x, y);
+      });
+      blobCtx.stroke();
     };
     draw();
     const interval = setInterval(draw, 1000);
@@ -232,6 +254,7 @@ export default function Dashboard() {
         </div>
       </div>
       <canvas ref={canvasRef} className="w-full h-48 mt-4" />
+      <canvas ref={blobCanvasRef} className="w-full h-48 mt-4" />
       <div className="text-sm text-gray-400 mt-2">
         <div>
           1h: high {stats.h1.high.toFixed(8)} / low {stats.h1.low.toFixed(8)} / avg{" "}
