@@ -119,7 +119,7 @@ export default function Dashboard() {
     } catch {
       // keep cached values if fetch fails
     }
-  };
+  });
 
   /* eslint-disable-next-line react-hooks/exhaustive-deps */
   useEffect(() => {
