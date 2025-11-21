@@ -55,7 +55,7 @@ export default function Dashboard() {
         }
       } catch {}
     }
-  };
+  });
 
   const saveCache = (data: DataPoint[]) => {
     localStorage.setItem("history", JSON.stringify(data));
